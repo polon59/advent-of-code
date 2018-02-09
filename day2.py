@@ -3,7 +3,6 @@ def get_table_from_file():
         lines = file.readlines()
         lines = [line.replace("\n","").split("\t") for line in lines]
 
-        print(lines)
     return lines
 
 
@@ -45,10 +44,10 @@ def count_division_sum_in_table(table):
         while x < len(table[i]) - 1:
             dividend = table[i][x]
 
-            for number in table[i]:
-                if number != dividend:
-                    if dividend % number == 0:
-                        division_result = dividend / number
+            for divider in table[i]:
+                if divider != dividend:
+                    if dividend % divider == 0:
+                        division_result = dividend / divider
                         division_sum += division_result
             x += 1
             
@@ -56,14 +55,13 @@ def count_division_sum_in_table(table):
 
     return division_sum
 
+def main():
+    table = get_table_from_file()
+    table = change_table_to_integers(table)
+    differences_sum = count_differences_in_table(table)
+    division_sum = count_division_sum_in_table(table)
+    print("differences sum: " + str(differences_sum))
+    print("division sum: " + str(division_sum))
 
-
-
-table = get_table_from_file()
-table = change_table_to_integers(table)
-differences_sum = count_differences_in_table(table)
-#division_sum = count_division_sum_in_table(table)
-
-print(differences_sum)
-#print(division_sum)
+main()
 
