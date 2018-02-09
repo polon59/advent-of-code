@@ -3,8 +3,8 @@ def get_table_from_file(file_name = "day4text.txt"):
         lines = file.readlines()
     table = [element.replace("\n", "").split(" ") for element in lines]
     return table
- 
- 
+
+
 def sort_table(table):
     for passpharse in table:
         i = 0
