@@ -16,9 +16,9 @@ def change_to_integers(lines):
 def counting_operations(lines):
     i = 0
     operations = 0
+
     while True:
         try:
-
             if lines[i] >= 3:
                 lines[i] -= 1 
                 i = i + lines[i] 
@@ -35,14 +35,14 @@ def counting_operations(lines):
                 raise IndexError
 
         except IndexError:
-            print("number of succesful operations: " + str(operations))
-            break
+            return operations
 
 
 def main():
     lines = get_table_from_file()
     lines = change_to_integers(lines)
-    counting_operations(lines)
+    operations = counting_operations(lines)
+    print("number of succesful operations: " + str(operations))
 
 
 main()
